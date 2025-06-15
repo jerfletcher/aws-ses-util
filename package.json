@@ -9,8 +9,19 @@
   "type": "module",
   "author": "",
   "license": "ISC",
-  "keywords": [],
-  "description": "",
+  "keywords": [
+    "aws",
+    "ses",
+    "smtp",
+    "email",
+    "cli",
+    "domain",
+    "verification",
+    "utility",
+    "custom domain",
+    "email sending"
+  ],
+  "description": "A CLI utility to simplify adding and managing AWS SES SMTP for sending email from custom domains. Handles domain verification, DNS, and SMTP credential setup.",
   "dependencies": {
     "@aws-sdk/client-ses": "^3.828.0",
     "@aws-sdk/client-sesv2": "^3.828.0",

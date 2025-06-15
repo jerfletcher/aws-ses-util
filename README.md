@@ -1,12 +1,15 @@
+
 # ses-util
 
-A CLI tool to manage AWS SES domain identities.
+A CLI tool to make it easier to add and manage AWS SES SMTP for sending email from custom domains. Simplifies domain verification, DNS setup, and SMTP credential generation.
+
 
 ## Features
 
 - **Check** a domain's verification status and get required DNS and SMTP settings.
 - **Create** a new SES domain identity if it does not exist.
 - **List** all verified email identities in a region.
+
 
 ## Installation
 
@@ -16,12 +19,13 @@ A CLI tool to manage AWS SES domain identities.
    npm install
    ```
 
+
 ## Usage
 
 Run the CLI with Node.js:
 
 ```sh
-node index.js <command> [options]
+npm start <command> [options]
 ```
 
 ### Commands
@@ -43,19 +47,19 @@ Options:
 
 If not provided, you will be prompted for the region.
 
-## Setting AWS Credentials
 
-This tool uses the AWS SDK and requires credentials with SES permissions. You can set credentials in any of the following ways:
 
-- **Environment variables:**
-  - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
-- **AWS credentials file:**
-  - `~/.aws/credentials`
-- **AWS config file:**
-  - `~/.aws/config`
+## Credentials
 
+Copy `.env.example` to `.env` and enter your AWS credentials:
+
+```
+# Example .env file
+AWS_ACCESS_KEY_ID=your-access-key-id
+AWS_SECRET_ACCESS_KEY=your-secret-access-key
+AWS_REGION=us-west-2
+```
 See [AWS documentation](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-credentials-node.html) for more details.
-
 
 ## Required IAM Policy
 
@@ -73,9 +77,9 @@ To use this tool, your IAM user needs the following minimum policy:
 				"ses:VerifyDomainIdentity",
 				"ses:ListVerifiedEmailAddresses",
 				"ses:ListEmailIdentities",
-                "ses:GetEmailIdentity",
-                "ses:CreateEmailIdentity",
-                "ses:GetIdentityVerificationAttributes"
+				"ses:GetEmailIdentity",
+				"ses:CreateEmailIdentity",
+				"ses:GetIdentityVerificationAttributes"
 			],
 			"Resource": "*"
 		}
@@ -84,6 +88,7 @@ To use this tool, your IAM user needs the following minimum policy:
 ```
 
 Add this policy to your IAM user or role to allow the tool to manage SES identities.
+
 
 ## SMTP Credentials
 
@@ -96,5 +101,6 @@ To generate SMTP credentials for SES:
 Store your SMTP username and password securely.
 
 ---
+
 
 For more information, see the source code in `index.js`.
