@@ -1,5 +1,5 @@
 
-# ses-util
+# aws-ses-util
 
 A CLI tool to make it easier to add and manage AWS SES SMTP for sending email from custom domains. Simplifies domain verification, DNS setup, and SMTP credential generation.
 
